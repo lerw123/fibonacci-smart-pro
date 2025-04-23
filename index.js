@@ -48,3 +48,13 @@ bot.onText(/\/trade (\w+) ([0-9.]+) ([0-9.]+) ([0-9.]+)/, async (msg, match) => 
 });
 
 process.on('SIGINT', () => process.exit());
+const http = require('http');
+const port = process.env.PORT || 3000;
+http
+  .createServer((req, res) => {
+    res.writeHead(200);
+    res.end('OK');
+  })
+  .listen(port, () => {
+    console.log(`HTTP server listening on port ${port}`);
+  });
